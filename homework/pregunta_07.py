@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_07():
     """
@@ -20,3 +21,11 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
+    # Lee el archivo tbl0.tsv
+    df = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    
+    # Agrupa por la columna c1 y calcula la suma de c2
+    result = df.groupby('c1')['c2'].sum()
+    
+    # Devuelve el resultado
+    return result
